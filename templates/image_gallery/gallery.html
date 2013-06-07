@@ -1,0 +1,9 @@
+{% load i18n thumbnail placeholder_tags menu_tags %}
+<h1>{{ gallery.title }}</h1>
+<p>{% render_placeholder gallery.description "description" %}</p>
+<ul class="imageGallery">
+    {% for image in images %}
+        <a href="/media/{{image.file}}" rel="lightbox[szegedTeam]"><li><img src="{% thumbnail image.file 200x200 crop upscale %}"></li></a>
+    {% endfor %}
+</ul>
+<div class="clear"></div>
